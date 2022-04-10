@@ -1,12 +1,20 @@
 <template>
   <div>
-    <p>Conteudo</p>
+    <HomeView />
+    <PublicarVagas />
   </div>
 </template>
 
 <script>
+import HomeView from '../views/HomeView.vue'
+import PublicarVagas from '../views/PublicarVagas.vue'
+
  export default {
-    name: 'ContentSite'
+    name: 'ContentSite',
+    components: {
+      HomeView,
+      PublicarVagas
+    }
   }
 </script>
 
