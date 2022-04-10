@@ -5,7 +5,9 @@
 </template>
 
 <script>
-
+ export default {
+    name: 'ContentSite'
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
