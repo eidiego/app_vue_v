@@ -1,17 +1,22 @@
 <template>
      <div class="card">
-          <div class="card-header bg-dark text-white">Tidulo da vaga</div>
+          <div class="card-header bg-dark text-white">{{ titulo }}</div>
           <div class="card-body">
-            <p>Descrição truncada da vaga...</p> 
+            <p>{{ descricao }}</p> 
           </div>
           <div class="card-footer">
-            <small class="text-muted"> Salário: R$ 6.000,00 | Modalidade: Home Office | Tipo: CLT | Data: 11/04/2022 </small>
+            <small class="text-muted"> 
+                Salário: {{ salario }}
+                | Modalidade: {{ modalidade }} 
+                | Tipo: {{ tipo }} 
+                | Data: {{ publicacao }} </small>
           </div>
         </div>  
 </template>
 
 <script>
 export default {
-    name: 'VagasComponent'
+    name: 'VagasComponent',
+    props: ['titulo', 'descricao', 'salario', 'modalidade', 'tipo', 'publicacao']
 }
 </script>
