@@ -17,6 +17,14 @@
 <script>
 export default {
     name: 'VagasComponent',
-    props: ['titulo', 'descricao', 'salario', 'modalidade', 'tipo', 'publicacao']
+    // props: ['titulo', 'descricao', 'salario', 'modalidade', 'tipo', 'publicacao']
+    props: {
+        titulo: String,
+        descricao: String,
+        salario: [Number, String],
+        modalidade: String,
+        tipo: String,
+        publicacao: String
+    }
 }
 </script>
