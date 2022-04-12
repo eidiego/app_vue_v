@@ -8,18 +8,19 @@
       </div>
     </div>
 
-    <div class="row mt-5">s
+    <div class="row mt-5">
         <div class="col-3">
-            <indicador-site titulo="Vagas abertas" indicador="100"></indicador-site> 
+            <indicador-site titulo="Vagas abertas" indicador="100" bg="bg-dark" color="text-white"></indicador-site> 
         </div>
 
          <div class="col-3">
-            <indicador-site titulo="Profissionais cadastrados" indicador="225"></indicador-site> 
+            <indicador-site titulo="Profissionais cadastrados" indicador="225" bg="bg-dark" color="text-white"></indicador-site> 
         </div>
 
          <div class="col-3">
-            <indicador-site titulo="Visitantes online" indicador="120"></indicador-site> 
+            <indicador-site titulo="Visitantes online" :indicador="usuariosOnline" bg="bg-light" color="text-dark"></indicador-site> 
         </div>
+        
     </div>
   </div>
 </template>
@@ -34,7 +35,18 @@ export default {
   components: {
     PesquisarVaga,
     IndicadorSite
-  } 
+  },
+  data: () => ({
+    usuariosOnline: 0
+  }),
+  methods: {
+    getUsuariosOnline() {
+     this.usuariosOnline = Math.floor(Math.random() * 101)
+    }
+  },
+  created() {
+    setInterval(this.getUsuariosOnline, 1000)
+  }
 }
 </script>
 
