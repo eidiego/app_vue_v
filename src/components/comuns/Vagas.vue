@@ -28,7 +28,7 @@ export default {
           required: true
         },
         salario: {
-          type: String,
+          type: [String, Number],
           required: true
         },
         modalidade: {
