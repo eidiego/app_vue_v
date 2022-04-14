@@ -1,27 +1,28 @@
 <template>
   <div>
-
-    <Top />
-    <Content />
-
+    <vagas-favoritas></vagas-favoritas>
+    <topo-padrao @navegar="componente = $event" />
+    <conteudo v-if="visibilidade" :conteudo="componente"></conteudo>
   </div>
 </template>
 
 <script>
-import Content from './components/layouts/ContentSite.vue'
-import Top from './components/layouts/TopSite.vue'
+import Conteudo from '@/components/layouts/Conteudo.vue'
+import VagasFavoritas from '@/components/comuns/VagasFavoritas.vue'
+import TopoPadrao from '@/components/layouts/TopoPadrao.vue'
 
 export default {
   name: 'App',
+  data: () => ({
+    visibilidade: true,
+    componente: 'Home'
+  }),
   components: {
-    Content,
-    Top,
+    Conteudo,
+    TopoPadrao,
+    VagasFavoritas
   }
 }
 </script>
 
-<style scoped>
-#app {
- 
-}
-</style>
+<style scoped></style>
