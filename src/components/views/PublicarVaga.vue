@@ -90,6 +90,7 @@ export default {
       })
       
       localStorage.setItem('vagas', JSON.stringify(vagas))
+
       this.resetaFormularioCadastroVaga()
       
     }, 
