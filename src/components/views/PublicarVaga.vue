@@ -89,8 +89,20 @@ export default {
         publicacao: dataAtual.toISOString() //data e hora no time zone UTC
       })
       
-      localStorage.setItem('vagas', JSON.stringify(vagas))
+      if(this.validaFormulario()) {
+        localStorage.setItem('vagas', JSON.stringify(vagas))
+        this.emitter.emit('alerta', {
+          titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
+          descricao: 'Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissioais em nossa plataforma'
+        })
 
+      } else {
+        this.emitter.emit('alerta', {
+          titulo: '-_- Opsss... Não foi possível realizar o cadastro!',
+          descricao: 'Parece que você esqueceu de preencher alguma informação. Faça o ajuste e tente novamente. Obrigado!'
+        })
+      }
+      
       this.resetaFormularioCadastroVaga()
       
     }, 
@@ -100,6 +112,17 @@ export default {
       this.salario = ''
       this.modalidade = ''
       this.tipo = ''
+    },
+    validaFormulario() {
+      let valido = true
+
+      if(this.titulo === '') valido = false
+      if(this.descricao === '') valido = false
+      if(this.salario === '') valido = false
+      if(this.modalidade === '') valido = false
+      if(this.tipo === '') valido = false
+
+      return valido
     }
   }
 }
