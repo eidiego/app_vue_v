@@ -10,6 +10,7 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox">
                             <label class="form-check-label">Favoritar</label>
+                            <button class="btn btn-danger" @click="dispararEventoComMitt()">Teste</button>
                         </div>
                     </div>
                 </div>
@@ -82,6 +83,11 @@ export default {
             let dataPublicacao = new Date(this.publicacao)
             //return dataPublicacao.toLocaleString('pt-BR')
             return dataPublicacao.toLocaleDateString('pt-BR')
+        }
+    },
+    methods: {
+        dispararEventoComMitt() {
+            this.emitter.emit('eventoGlobal1', 'Teste Captura Evento Parâmetro')
         }
     }
 }
